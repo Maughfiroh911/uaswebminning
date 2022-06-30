@@ -1,0 +1,619 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Ekstraksi Fitur &#8212; My sample book</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Topic Modelling LSA" href="lsa.html" />
+    <link rel="prev" title="PREPROCESSING" href="Preprocessing.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="crawling.html">
+                    CRAWLING DATA
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Preprocessing.html">
+   PREPROCESSING
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Ekstraksi Fitur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lsa.html">
+   Topic Modelling LSA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kmeans.html">
+   K Means
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/Ekstraksi.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FEkstraksi.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Ekstraksi.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tf-idf">
+   TF-IDF
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Ekstraksi Fitur</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tf-idf">
+   TF-IDF
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="ekstraksi-fitur">
+<h1>Ekstraksi Fitur<a class="headerlink" href="#ekstraksi-fitur" title="Permalink to this headline">#</a></h1>
+<p>Ekstraksi fitur merupakan proses untuk mencari nilai-nilai fitur yang terkandung dalam dokumen. Ekstraksi fitur menjadi bagian yang sangat penting dalam pengolahan dokumen pada mesin pencari karena sangat menentukan keberhasilan proses text mining. Salah satu metode ekstraksi fitur yang banyak digunakan dan populer adalah TF-IDF.</p>
+<section id="tf-idf">
+<h2>TF-IDF<a class="headerlink" href="#tf-idf" title="Permalink to this headline">#</a></h2>
+<p>Term Frequency Inverse Document Frequency (TF-IDF) adalah algoritma pembobotan dokomen .
+Term frequency (TF) adalah rasio dari jumlah kemunculan kata dalam dokumen.
+IDF adalah kemunculan kata terhadap keseluruhan dokumen dalam database.
+TF-IDF adalah ukuran yang dinormalisasi yang mempertimbangkan panjang dokumen.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+&amp;W=T F(I D F+1) \\
+&amp;I D F=\log D / d f
+\end{aligned}
+\end{split}\]</div>
+<p>Keterangan:</p>
+<p>TF : Frekuensi kemunculan kata pada setiap dokumen</p>
+<p>D: Jumlah dokumen</p>
+<p>df: Jumlah dokumen yang mengandung sebuah term</p>
+<p>IDF:Hasil log dari jumlah dokumen keseluruhan dibagi dengan jumlah dokumen yang mengandung sebuah term</p>
+<p>W: Bobot frekuensi sebuah term pada sebuah dokumen</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span><span class="p">,</span><span class="n">CountVectorizer</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<span class="c1">#stop_words=set(nltk.corpus.stopwords.words(&#39;english&#39;, &#39;indonesian&#39;))</span>
+<span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">nltk</span><span class="o">.</span><span class="n">corpus</span><span class="o">.</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;indonesian&#39;</span><span class="p">))</span>
+
+<span class="n">vect</span> <span class="o">=</span><span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">stop_words</span><span class="o">=</span><span class="n">stop_words</span><span class="p">,</span><span class="n">max_features</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span> <span class="c1"># to play with. min_df,max_df,max_features etc...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#print(stop_words)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vect_text</span><span class="o">=</span><span class="n">vect</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;abstrak_baru&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\users\hp\appdata\local\programs\python\python39\lib\site-packages\sklearn\feature_extraction\text.py:396: UserWarning: Your stop_words may be inconsistent with your preprocessing. Tokenizing the stop words generated tokens [&#39;baiknya&#39;, &#39;berkali&#39;, &#39;kali&#39;, &#39;kurangnya&#39;, &#39;mata&#39;, &#39;olah&#39;, &#39;sekurang&#39;, &#39;setidak&#39;, &#39;tama&#39;, &#39;tidaknya&#39;] not in stop_words.
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">vect_text</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vect_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(54, 1000)
+  (0, 455)	0.03126948772937854
+  (0, 102)	0.03504055168640366
+  (0, 527)	0.07347022084478955
+  (0, 529)	0.07347022084478955
+  (0, 868)	0.09086351357330404
+  (0, 91)	0.0492532363393877
+  (0, 395)	0.07051466555281015
+  (0, 918)	0.1265915936690852
+  (0, 653)	0.03868363538776056
+  (0, 732)	0.07682095307814914
+  (0, 310)	0.0980823822915716
+  (0, 234)	0.09617179896916261
+  (0, 684)	0.0955798308326196
+  (0, 936)	0.07051466555281015
+  (0, 271)	0.07682095307814914
+  (0, 620)	0.15936411847288698
+  (0, 912)	0.1705282479627903
+  (0, 409)	0.2115439966584305
+  (0, 379)	0.1961647645831432
+  (0, 845)	0.07008110337280732
+  (0, 839)	0.11844093710774296
+  (0, 313)	0.09086351357330404
+  (0, 78)	0.16366698394662094
+  (0, 725)	0.10825680630181854
+  (0, 622)	0.08068908956305709
+  :	:
+  (53, 477)	0.026262683584568656
+  (53, 852)	0.026262683584568656
+  (53, 975)	0.025386957723743452
+  (53, 900)	0.03371865959855655
+  (53, 453)	0.02130615480902894
+  (53, 162)	0.03232990231499089
+  (53, 692)	0.02314112981797984
+  (53, 683)	0.023835508459762674
+  (53, 93)	0.016859329799278275
+  (53, 32)	0.02810843843564373
+  (53, 813)	0.016164951157495444
+  (53, 676)	0.04261230961805788
+  (53, 565)	0.02722193273269436
+  (53, 951)	0.014613501893514663
+  (53, 881)	0.1093318178968271
+  (53, 960)	0.08082475578747722
+  (53, 306)	0.01208414824278093
+  (53, 102)	0.02810843843564373
+  (53, 234)	0.03857300984816852
+  (53, 684)	0.025557053769127515
+  (53, 845)	0.02810843843564373
+  (53, 811)	0.01583493803953971
+  (53, 976)	0.06270852116009895
+  (53, 450)	0.019754705545048153
+  (53, 680)	0.03131190052750587
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idf</span><span class="o">=</span><span class="n">vect</span><span class="o">.</span><span class="n">idf_</span>
+<span class="n">nilaiidf</span> <span class="o">=</span> <span class="p">[</span><span class="n">idf</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dd</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">vect</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">(),</span> <span class="n">idf</span><span class="p">))</span>
+<span class="n">l</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">dd</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
+<span class="c1">#kata = [l]</span>
+<span class="c1">#print(l)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
+<span class="c1">#print(dd[&#39;metode&#39;])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>penelitian zscore
+{&#39;accidental&#39;: 3.0614230361771577, &#39;acer&#39;: 4.314186004672526, &#39;action&#39;: 4.314186004672526, &#39;adaro&#39;: 4.314186004672526, &#39;adira&#39;: 4.314186004672526, &#39;adjusted&#39;: 3.6210388241125804, &#39;administrasi&#39;: 4.314186004672526, &#39;adnya&#39;: 4.314186004672526, &#39;agro&#39;: 4.314186004672526, &#39;agung&#39;: 3.908720896564361, &#39;agustini&#39;: 4.314186004672526, &#39;aida&#39;: 4.314186004672526, &#39;air&#39;: 4.314186004672526, &#39;akademik&#39;: 3.908720896564361, &#39;akibatnya&#39;: 4.314186004672526, &#39;aksesibilitas&#39;: 4.314186004672526, &#39;aksidental&#39;: 3.908720896564361, &#39;aktif&#39;: 3.6210388241125804, &#39;aktifitas&#39;: 4.314186004672526, &#39;aktiva&#39;: 4.314186004672526, &#39;aktivitas&#39;: 3.908720896564361, &#39;akuisisi&#39;: 4.314186004672526, &#39;akuisisimelakukan&#39;: 4.314186004672526, &#39;akurat&#39;: 4.314186004672526, &#39;alat&#39;: 2.5224265354444704, &#39;alih&#39;: 4.314186004672526, &#39;alkirom&#39;: 4.314186004672526, &#39;also&#39;: 4.314186004672526, &#39;alternatif&#39;: 4.314186004672526, &#39;altman&#39;: 4.314186004672526, &#39;aman&#39;: 4.314186004672526, &#39;anak&#39;: 3.908720896564361, &#39;analisis&#39;: 1.3964152725882464, &#39;analitik&#39;: 4.314186004672526, &#39;analysis&#39;: 3.908720896564361, &#39;and&#39;: 4.314186004672526, &#39;anggota&#39;: 4.314186004672526, &#39;angin&#39;: 4.314186004672526, &#39;anova&#39;: 4.314186004672526, &#39;anti&#39;: 4.314186004672526, &#39;aplikasi&#39;: 3.908720896564361, &#39;approach&#39;: 4.314186004672526, &#39;apresisasikan&#39;: 4.314186004672526, &#39;area&#39;: 4.314186004672526, &#39;armstrong&#39;: 4.314186004672526, &#39;asih&#39;: 4.314186004672526, &#39;asosiasi&#39;: 4.314186004672526, &#39;asset&#39;: 4.314186004672526, &#39;assetperusahaan&#39;: 4.314186004672526, &#39;association&#39;: 4.314186004672526, &#39;astra&#39;: 4.314186004672526, &#39;asumsi&#39;: 2.6094379124341005, &#39;asuransi&#39;: 4.314186004672526, &#39;at&#39;: 4.314186004672526, &#39;aththaariq&#39;: 4.314186004672526, &#39;atmosfer&#39;: 4.314186004672526, &#39;atribut&#39;: 3.2155737160044158, &#39;attention&#39;: 4.314186004672526, &#39;attractiveness&#39;: 4.314186004672526, &#39;auliasstsemmt&#39;: 4.314186004672526, &#39;autoritarian&#39;: 4.314186004672526, &#39;autoritariansecara&#39;: 4.314186004672526, &#39;badan&#39;: 4.314186004672526, &#39;bangakalanvariabel&#39;: 4.314186004672526, &#39;bangkalan&#39;: 2.01160091167848, &#39;bangkalannamun&#39;: 4.314186004672526, &#39;bangkalansecara&#39;: 4.314186004672526, &#39;bangkrut&#39;: 4.314186004672526, &#39;bank&#39;: 3.908720896564361, &#39;banking&#39;: 4.314186004672526, &#39;bantu&#39;: 3.2155737160044158, &#39;bantuan&#39;: 2.810108607896251, &#39;banyuanyar&#39;: 4.314186004672526, &#39;barang&#39;: 4.314186004672526, &#39;barat&#39;: 4.314186004672526, &#39;barokah&#39;: 4.314186004672526, &#39;bauran&#39;: 3.6210388241125804, &#39;be&#39;: 4.314186004672526, &#39;bebas&#39;: 2.174119841176255, &#39;bebasnya&#39;: 4.314186004672526, &#39;behavioral&#39;: 4.314186004672526, &#39;bei&#39;: 3.908720896564361, &#39;belanja&#39;: 4.314186004672526, &#39;beli&#39;: 3.3978952727983707, &#39;benarbenar&#39;: 4.314186004672526, &#39;bentuk&#39;: 3.908720896564361, &#39;berasal&#39;: 4.314186004672526, &#39;berbasis&#39;: 4.314186004672526, &#39;berbedabeda&#39;: 4.314186004672526, &#39;berbelanja&#39;: 3.908720896564361, &#39;berdasar&#39;: 3.908720896564361, &#39;berdasarkan&#39;: 1.962810747509048, &#39;berdomisili&#39;: 4.314186004672526, &#39;berganda&#39;: 1.675128675057267, &#39;bergerak&#39;: 3.6210388241125804, &#39;berhubungan&#39;: 4.314186004672526, &#39;berketergantungan&#39;: 4.314186004672526, &#39;berkurang&#39;: 4.314186004672526, &#39;berlandaskan&#39;: 4.314186004672526, &#39;berlubang&#39;: 4.314186004672526, &#39;berman&#39;: 4.314186004672526, &#39;berpenampilan&#39;: 4.314186004672526, &#39;berpengaruh&#39;: 1.3964152725882464, &#39;berprestasi&#39;: 4.314186004672526, &#39;berprofesi&#39;: 4.314186004672526, &#39;bersaing&#39;: 4.314186004672526, &#39;bersamasama&#39;: 3.3978952727983707, &#39;bersifat&#39;: 4.314186004672526, &#39;bersumber&#39;: 4.314186004672526, &#39;bertujuan&#39;: 2.3682758556172123, &#39;berturutturut&#39;: 3.908720896564361, &#39;berusaha&#39;: 3.3978952727983707, &#39;besarnya&#39;: 3.0614230361771577, &#39;beta&#39;: 3.6210388241125804, &#39;biaya&#39;: 4.314186004672526, &#39;bidang&#39;: 3.6210388241125804, &#39;bigger&#39;: 4.314186004672526, &#39;bimbingan&#39;: 3.908720896564361, &#39;bintang&#39;: 4.314186004672526, &#39;bisnis&#39;: 3.908720896564361, &#39;bisnisnya&#39;: 4.314186004672526, &#39;bmt&#39;: 4.314186004672526, &#39;bocordll&#39;: 4.314186004672526, &#39;both&#39;: 4.314186004672526, &#39;bpr&#39;: 4.314186004672526, &#39;brand&#39;: 4.314186004672526, &#39;bri&#39;: 4.314186004672526, &#39;budaya&#39;: 3.908720896564361, &#39;bukti&#39;: 3.6210388241125804, &#39;bundling&#39;: 4.314186004672526, &#39;bursa&#39;: 3.2155737160044158, &#39;businees&#39;: 4.314186004672526, &#39;business&#39;: 3.908720896564361, &#39;buyung&#39;: 4.314186004672526, &#39;by&#39;: 4.314186004672526, &#39;cabang&#39;: 3.2155737160044158, &#39;cacat&#39;: 4.314186004672526, &#39;cair&#39;: 4.314186004672526, &#39;can&#39;: 4.314186004672526, &#39;cdm&#39;: 4.314186004672526, &#39;celebrity&#39;: 4.314186004672526, &#39;cepat&#39;: 3.908720896564361, &#39;chicken&#39;: 4.314186004672526, &#39;ci&#39;: 4.314186004672526, &#39;cipta&#39;: 4.314186004672526, &#39;coffee&#39;: 4.314186004672526, &#39;collecting&#39;: 4.314186004672526, &#39;concluded&#39;: 4.314186004672526, &#39;conclusion&#39;: 4.314186004672526, &#39;consisting&#39;: 4.314186004672526, &#39;consumer&#39;: 3.908720896564361, &#39;cranberries&#39;: 4.314186004672526, &#39;cranberriess&#39;: 4.314186004672526, &#39;credit&#39;: 4.314186004672526, &#39;current&#39;: 3.6210388241125804, &#39;cutoffpoint&#39;: 4.314186004672526, &#39;cv&#39;: 4.314186004672526, &#39;daerah&#39;: 3.908720896564361, &#39;dana&#39;: 4.314186004672526, &#39;dananya&#39;: 4.314186004672526, &#39;dasar&#39;: 4.314186004672526, &#39;dasarnya&#39;: 4.314186004672526, &#39;data&#39;: 1.6061358035703155, &#39;daya&#39;: 3.2155737160044158, &#39;dealer&#39;: 3.908720896564361, &#39;debt&#39;: 3.908720896564361, &#39;decision&#39;: 3.908720896564361, &#39;demokratis&#39;: 4.314186004672526, &#39;dependen&#39;: 3.908720896564361, &#39;depot&#39;: 3.908720896564361, &#39;desa&#39;: 3.908720896564361, &#39;desain&#39;: 4.314186004672526, &#39;desember&#39;: 3.6210388241125804, &#39;desire&#39;: 4.314186004672526, &#39;deskripsi&#39;: 4.314186004672526, &#39;deskriptif&#39;: 3.0614230361771577, &#39;deterjen&#39;: 4.314186004672526, &#39;determinasi&#39;: 3.0614230361771577, &#39;detikcom&#39;: 4.314186004672526, &#39;deviden&#39;: 4.314186004672526, &#39;dewi&#39;: 4.314186004672526, &#39;dharma&#39;: 4.314186004672526, &#39;diagram&#39;: 3.908720896564361, &#39;diambil&#39;: 3.0614230361771577, &#39;diana&#39;: 4.314186004672526, &#39;dianalisa&#39;: 4.314186004672526, &#39;dianalisis&#39;: 3.3978952727983707, &#39;dianalisisi&#39;: 4.314186004672526, &#39;diatas&#39;: 3.908720896564361, &#39;dibagikan&#39;: 4.314186004672526, &#39;dibawah&#39;: 3.908720896564361, &#39;dibeli&#39;: 4.314186004672526, &#39;dibentuk&#39;: 4.314186004672526, &#39;dibuktikan&#39;: 4.314186004672526, &#39;didapatkan&#39;: 3.6210388241125804, &#39;didasarkan&#39;: 4.314186004672526, &#39;diharapkan&#39;: 3.908720896564361, &#39;dijadikan&#39;: 3.908720896564361, &#39;dikantor&#39;: 4.314186004672526, &#39;dikatagorikan&#39;: 4.314186004672526, &#39;dilaksanakan&#39;: 3.6210388241125804, &#39;dimana&#39;: 3.2155737160044158, &#39;dimasukkan&#39;: 4.314186004672526, &#39;dimensi&#39;: 4.314186004672526, &#39;dimiliki&#39;: 3.908720896564361, &#39;dinas&#39;: 3.6210388241125804, &#39;diolah&#39;: 3.908720896564361, &#39;dipengaruhi&#39;: 2.810108607896251, &#39;dipercaya&#39;: 4.314186004672526, &#39;diperoleh&#39;: 2.2992829841302607, &#39;dipertimbangkan&#39;: 4.314186004672526, &#39;dipilih&#39;: 4.314186004672526, &#39;dirilis&#39;: 4.314186004672526, &#39;disebabkan&#39;: 3.908720896564361, &#39;disimpulkan&#39;: 3.0614230361771577, &#39;disiplin&#39;: 3.908720896564361, &#39;disitus&#39;: 4.314186004672526, &#39;diskriptif&#39;: 4.314186004672526, &#39;display&#39;: 4.314186004672526, &#39;distribusi&#39;: 3.6210388241125804, &#39;distro&#39;: 4.314186004672526, &#39;ditawarkannya&#39;: 4.314186004672526, &#39;diteliti&#39;: 2.810108607896251, &#39;diterapkan&#39;: 4.314186004672526, &#39;diterapkannya&#39;: 4.314186004672526, &#39;diterima&#39;: 3.908720896564361, &#39;ditetapkan&#39;: 4.314186004672526, &#39;ditinjau&#39;: 4.314186004672526, &#39;ditribusi&#39;: 4.314186004672526, &#39;diukur&#39;: 4.314186004672526, &#39;dividen&#39;: 4.314186004672526, &#39;dividend&#39;: 4.314186004672526, &#39;doingconducting&#39;: 4.314186004672526, &#39;dokumen&#39;: 4.314186004672526, &#39;dominan&#39;: 1.916290731874155, &#39;dorongan&#39;: 4.314186004672526, &#39;dosen&#39;: 3.908720896564361, &#39;dr&#39;: 4.314186004672526, &#39;drahjsanugrahini&#39;: 4.314186004672526, &#39;drawing&#39;: 4.314186004672526, &#39;drrm&#39;: 4.314186004672526, &#39;duga&#39;: 4.314186004672526, &#39;dukuh&#39;: 4.314186004672526, &#39;earning&#39;: 4.314186004672526, &#39;eat&#39;: 4.314186004672526, &#39;eceran&#39;: 4.314186004672526, &#39;efek&#39;: 3.2155737160044158, &#39;efektif&#39;: 4.314186004672526, &#39;efektivitas&#39;: 4.314186004672526, &#39;efficacy&#39;: 4.314186004672526, &#39;effort&#39;: 4.314186004672526, &#39;efisien&#39;: 3.6210388241125804, &#39;ekonomi&#39;: 3.2155737160044158, &#39;ekuitas&#39;: 4.314186004672526, &#39;emosional&#39;: 4.314186004672526, &#39;empati&#39;: 3.908720896564361, &#39;empiris&#39;: 4.314186004672526, &#39;enam&#39;: 4.314186004672526, &#39;endorser&#39;: 4.314186004672526, &#39;energy&#39;: 4.314186004672526, &#39;entireall&#39;: 4.314186004672526, &#39;equity&#39;: 3.908720896564361, &#39;erangkat&#39;: 4.314186004672526, &#39;erb&#39;: 4.314186004672526, &#39;etos&#39;: 4.314186004672526, &#39;excess&#39;: 4.314186004672526, &#39;expertise&#39;: 4.314186004672526, &#39;faktor&#39;: 3.0614230361771577, &#39;faktorfaktor&#39;: 3.3978952727983707, &#39;fakultas&#39;: 3.3978952727983707, &#39;fashion&#39;: 4.314186004672526, &#39;fhitung&#39;: 3.0614230361771577, &#39;filsafat&#39;: 4.314186004672526, &#39;finance&#39;: 4.314186004672526, &#39;finansial&#39;: 4.314186004672526, &#39;firm&#39;: 4.314186004672526, &#39;fisik&#39;: 3.6210388241125804, &#39;fitur&#39;: 3.908720896564361, &#39;fleksibilitas&#39;: 4.314186004672526, &#39;fluktuatif&#39;: 3.908720896564361, &#39;focus&#39;: 4.314186004672526, &#39;fokus&#39;: 3.908720896564361, &#39;for&#39;: 3.3978952727983707, &#39;form&#39;: 4.314186004672526, &#39;format&#39;: 3.908720896564361, &#39;free&#39;: 4.314186004672526, &#39;frekuensi&#39;: 3.908720896564361, &#39;from&#39;: 4.314186004672526, &#39;ftabel&#39;: 3.6210388241125804, &#39;gambaran&#39;: 3.908720896564361, &#39;gaya&#39;: 4.314186004672526, &#39;geger&#39;: 4.314186004672526, &#39;generality&#39;: 4.314186004672526, &#39;gerai&#39;: 4.314186004672526, &#39;get&#39;: 4.314186004672526, &#39;ghodaqo&#39;: 4.314186004672526, &#39;global&#39;: 3.908720896564361, &#39;glorious&#39;: 4.314186004672526, &#39;go&#39;: 4.314186004672526, &#39;goodyear&#39;: 4.314186004672526, &#39;goreng&#39;: 4.314186004672526, &#39;graha&#39;: 4.314186004672526, &#39;gresik&#39;: 4.314186004672526, &#39;gudang&#39;: 4.314186004672526, &#39;hamper&#39;: 4.314186004672526, &#39;harga&#39;: 2.6094379124341005, &#39;hasil&#39;: 1.2006706954621513, &#39;hdiya&#39;: 4.314186004672526, &#39;helm&#39;: 4.314186004672526, &#39;hipotesis&#39;: 1.8292793548845252, &#39;hitung&#39;: 3.908720896564361, &#39;home&#39;: 4.314186004672526, &#39;honda&#39;: 3.908720896564361, &#39;hubungan&#39;: 3.6210388241125804, &#39;ibuibu&#39;: 3.908720896564361, &#39;identifikasi&#39;: 4.314186004672526, &#39;idola&#39;: 4.314186004672526, &#39;ikan&#39;: 4.314186004672526, &#39;iklan&#39;: 3.2155737160044158, &#39;importance&#39;: 3.908720896564361, &#39;indah&#39;: 4.314186004672526, &#39;indeks&#39;: 3.908720896564361, &#39;independen&#39;: 3.908720896564361, &#39;individu&#39;: 3.6210388241125804, &#39;indomilk&#39;: 4.314186004672526, &#39;indonesia&#39;: 2.6094379124341005, &#39;influence&#39;: 4.314186004672526, &#39;informasi&#39;: 3.908720896564361, &#39;ink&#39;: 4.314186004672526, &#39;inovasi&#39;: 4.314186004672526, &#39;instansi&#39;: 4.314186004672526, &#39;instrumen&#39;: 2.927891643552635, &#39;instrument&#39;: 3.908720896564361, &#39;interest&#39;: 4.314186004672526, &#39;internet&#39;: 3.908720896564361, &#39;inti&#39;: 4.314186004672526, &#39;investor&#39;: 3.908720896564361, &#39;is&#39;: 4.314186004672526, &#39;isi&#39;: 3.908720896564361, &#39;jabatan&#39;: 4.314186004672526, &#39;jalur&#39;: 4.314186004672526, &#39;jaminan&#39;: 3.3978952727983707, &#39;jamu&#39;: 4.314186004672526, &#39;jasa&#39;: 3.908720896564361, &#39;jawa&#39;: 3.908720896564361, &#39;jembatan&#39;: 4.314186004672526, &#39;jerry&#39;: 3.908720896564361, &#39;jupiter&#39;: 4.314186004672526, &#39;kabupaten&#39;: 2.810108607896251, &#39;kamal&#39;: 3.908720896564361, &#39;kandidat&#39;: 4.314186004672526, &#39;kantor&#39;: 3.2155737160044158, &#39;kapuas&#39;: 4.314186004672526, &#39;karir&#39;: 3.908720896564361, &#39;kartesius&#39;: 3.908720896564361, &#39;kartu&#39;: 4.314186004672526, &#39;karyawan&#39;: 3.0614230361771577, &#39;katakunci&#39;: 3.908720896564361, &#39;kategori&#39;: 3.908720896564361, &#39;keamanan&#39;: 4.314186004672526, &#39;kebangkrutan&#39;: 4.314186004672526, &#39;kebenaran&#39;: 4.314186004672526, &#39;kebudayaan&#39;: 3.908720896564361, &#39;kecamatan&#39;: 3.0614230361771577, &#39;kecuali&#39;: 3.908720896564361, &#39;kehandalan&#39;: 3.908720896564361, &#39;kehidupan&#39;: 4.314186004672526, &#39;kekecewaan&#39;: 4.314186004672526, &#39;kelautan&#39;: 4.314186004672526, &#39;kelompok&#39;: 4.314186004672526, &#39;keluarga&#39;: 4.314186004672526, &#39;kelurahan&#39;: 3.908720896564361, &#39;kemampuan&#39;: 4.314186004672526, &#39;kemasan&#39;: 3.6210388241125804, &#39;kembang&#39;: 4.314186004672526, &#39;kemudahan&#39;: 3.908720896564361, &#39;kenaikan&#39;: 3.908720896564361, &#39;kendala&#39;: 4.314186004672526, &#39;kenyataan&#39;: 4.314186004672526, &#39;kepemimpinan&#39;: 3.908720896564361, &#39;kepemimpinanx&#39;: 4.314186004672526, &#39;kepentingan&#39;: 3.908720896564361, &#39;kepercayaan&#39;: 4.314186004672526, &#39;kepribadian&#39;: 4.314186004672526, &#39;kepribadiandan&#39;: 4.314186004672526, &#39;kepuasan&#39;: 3.0614230361771577, &#39;kepustakaan&#39;: 3.2155737160044158, &#39;keputusan&#39;: 2.116961427336306, &#39;kerja&#39;: 3.0614230361771577, &#39;kerjakaryawan&#39;: 4.314186004672526, &#39;kertas&#39;: 4.314186004672526, &#39;kesadaran&#39;: 4.314186004672526, &#39;kesediaan&#39;: 4.314186004672526, &#39;kesempatan&#39;: 4.314186004672526, &#39;kesetiaan&#39;: 4.314186004672526, &#39;kesimpulan&#39;: 2.810108607896251, &#39;ketentuan&#39;: 4.314186004672526, &#39;keterampilan&#39;: 3.908720896564361, &#39;ketersediaan&#39;: 4.314186004672526, &#39;ketidak&#39;: 4.314186004672526, &#39;keuangan&#39;: 3.908720896564361, &#39;keunggulan&#39;: 4.314186004672526, &#39;keuntungan&#39;: 3.6210388241125804, &#39;keyakinan&#39;: 4.314186004672526, &#39;keywords&#39;: 3.908720896564361, &#39;khs&#39;: 4.314186004672526, &#39;ki&#39;: 4.314186004672526, &#39;kiddrock&#39;: 4.314186004672526, &#39;kimia&#39;: 4.314186004672526, &#39;kinerja&#39;: 2.810108607896251, &#39;kip&#39;: 4.314186004672526, &#39;kisaran&#39;: 4.314186004672526, &#39;klasifikasi&#39;: 4.314186004672526, &#39;klasik&#39;: 3.0614230361771577, &#39;klasiksedangkan&#39;: 3.6210388241125804, &#39;klik&#39;: 4.314186004672526, &#39;kmo&#39;: 4.314186004672526, &#39;know&#39;: 4.314186004672526, &#39;koefisien&#39;: 3.2155737160044158, &#39;koefisiensi&#39;: 4.314186004672526, &#39;kominkator&#39;: 4.314186004672526, &#39;komitmen&#39;: 4.314186004672526, &#39;kompensasi&#39;: 3.908720896564361, &#39;kompetensi&#39;: 4.314186004672526, &#39;komposisi&#39;: 4.314186004672526, &#39;komputer&#39;: 3.908720896564361, &#39;komunikan&#39;: 4.314186004672526, &#39;komunikasi&#39;: 3.6210388241125804, &#39;komunikator&#39;: 4.314186004672526, &#39;kondisi&#39;: 3.3978952727983707, &#39;kondusif&#39;: 4.314186004672526, &#39;konfirmatori&#39;: 4.314186004672526, &#39;konsep&#39;: 4.314186004672526, &#39;konsumen&#39;: 2.116961427336306, &#39;kontribusi&#39;: 4.314186004672526, &#39;konvensional&#39;: 4.314186004672526, &#39;koperasi&#39;: 4.314186004672526, &#39;kopergu&#39;: 4.314186004672526, &#39;kosumen&#39;: 4.314186004672526, &#39;kota&#39;: 3.6210388241125804, &#39;kotler&#39;: 4.314186004672526, &#39;kpri&#39;: 4.314186004672526, &#39;kredibilitas&#39;: 4.314186004672526, &#39;kriteria&#39;: 4.314186004672526, &#39;kriterian&#39;: 4.314186004672526, &#39;kritis&#39;: 4.314186004672526, &#39;krs&#39;: 4.314186004672526, &#39;kualitas&#39;: 2.6094379124341005, &#39;kualitatif&#39;: 4.314186004672526, &#39;kuantitaif&#39;: 4.314186004672526, &#39;kuantitatif&#39;: 1.962810747509048, &#39;kuat&#39;: 4.314186004672526, &#39;kuci&#39;: 3.908720896564361, &#39;kuesioner&#39;: 2.116961427336306, &#39;kuisioner&#39;: 4.314186004672526, &#39;kunci&#39;: 1.2461330695389086, &#39;kupang&#39;: 4.314186004672526, &#39;kwanyar&#39;: 4.314186004672526, &#39;label&#39;: 4.314186004672526, &#39;lahirnya&#39;: 4.314186004672526, &#39;lainya&#39;: 4.314186004672526, &#39;laissezfaire&#39;: 4.314186004672526, &#39;laissezfairesecara&#39;: 4.314186004672526, &#39;laku&#39;: 3.908720896564361, &#39;lamongan&#39;: 3.6210388241125804, &#39;lampu&#39;: 4.314186004672526, &#39;langkah&#39;: 3.908720896564361, &#39;langsung&#39;: 2.927891643552635, &#39;lapang&#39;: 3.908720896564361, &#39;lapangan&#39;: 4.314186004672526, &#39;laporan&#39;: 4.314186004672526, &#39;layak&#39;: 4.314186004672526, &#39;layanan&#39;: 3.6210388241125804, &#39;lembaga&#39;: 4.314186004672526, &#39;lestari&#39;: 3.908720896564361, &#39;leverage&#39;: 4.314186004672526, &#39;library&#39;: 4.314186004672526, &#39;likert&#39;: 2.6094379124341005, &#39;likuiditas&#39;: 3.908720896564361, &#39;lingkungan&#39;: 3.908720896564361, &#39;liniear&#39;: 4.314186004672526, &#39;linier&#39;: 1.7884573603642702, &#39;liquid&#39;: 4.314186004672526, &#39;listrik&#39;: 4.314186004672526, &#39;loan&#39;: 4.314186004672526, &#39;location&#39;: 4.314186004672526, &#39;lokasi&#39;: 3.6210388241125804, &#39;loyalitas&#39;: 3.908720896564361, &#39;lq&#39;: 4.314186004672526, &#39;lukisan&#39;: 4.314186004672526, &#39;lunak&#39;: 3.3978952727983707, &#39;maan&#39;: 4.314186004672526, &#39;madura&#39;: 2.6094379124341005, &#39;magnitude&#39;: 4.314186004672526, &#39;mahasiswa&#39;: 2.927891643552635, &#39;mahasiswasampelpenelitianiniadalahmahasiswaangkatan&#39;: 4.314186004672526, &#39;makanan&#39;: 3.908720896564361, &#39;makmur&#39;: 4.314186004672526, &#39;maksimal&#39;: 4.314186004672526, &#39;malam&#39;: 4.314186004672526, &#39;manajemen&#39;: 3.908720896564361, &#39;manakah&#39;: 2.810108607896251, &#39;manfaat&#39;: 4.314186004672526, &#39;manufaktr&#39;: 4.314186004672526, &#39;manufaktur&#39;: 3.908720896564361, &#39;manusia&#39;: 3.6210388241125804, &#39;manyar&#39;: 4.314186004672526, &#39;maret&#39;: 4.314186004672526, &#39;marga&#39;: 4.314186004672526, &#39;marketing&#39;: 4.314186004672526, &#39;mart&#39;: 4.314186004672526, &#39;masako&#39;: 4.314186004672526, &#39;masingmasing&#39;: 3.908720896564361, &#39;masuk&#39;: 3.6210388241125804, &#39;masyarakat&#39;: 3.908720896564361, &#39;mawapres&#39;: 4.314186004672526, &#39;mebagikan&#39;: 4.314186004672526, &#39;media&#39;: 4.314186004672526, &#39;meguji&#39;: 3.6210388241125804, &#39;melakuukan&#39;: 4.314186004672526, &#39;meluas&#39;: 4.314186004672526, &#39;memakai&#39;: 3.0614230361771577, &#39;memakaiuji&#39;: 4.314186004672526, &#39;membagi&#39;: 4.314186004672526, &#39;membagikan&#39;: 3.3978952727983707, &#39;membeli&#39;: 3.2155737160044158, &#39;membentuk&#39;: 4.314186004672526, &#39;membuktikan&#39;: 2.927891643552635, &#39;memilih&#39;: 4.314186004672526, &#39;memiliki&#39;: 2.927891643552635, &#39;meminimalkan&#39;: 4.314186004672526, &#39;mempengaruhi&#39;: 2.5224265354444704, &#39;memperhatikan&#39;: 3.6210388241125804, &#39;memperoleh&#39;: 3.6210388241125804, &#39;memprihatinkan&#39;: 4.314186004672526, &#39;mempunyah&#39;: 4.314186004672526, &#39;memutuskan&#39;: 4.314186004672526, &#39;menarik&#39;: 4.314186004672526, &#39;mendeskripsikan&#39;: 3.908720896564361, &#39;mendukung&#39;: 4.314186004672526, &#39;menekankan&#39;: 4.314186004672526, &#39;meneliti&#39;: 4.314186004672526, &#39;menemui&#39;: 4.314186004672526, &#39;menentukan&#39;: 4.314186004672526, &#39;menerangkan&#39;: 3.908720896564361, &#39;menerapkan&#39;: 3.908720896564361, &#39;menerima&#39;: 4.314186004672526, &#39;menetukan&#39;: 4.314186004672526, &#39;mengakuisisi&#39;: 4.314186004672526, &#39;mengalami&#39;: 3.2155737160044158, &#39;mengambil&#39;: 3.6210388241125804, &#39;menganalisa&#39;: 4.314186004672526, &#39;menganalisis&#39;: 3.3978952727983707, &#39;mengelola&#39;: 4.314186004672526, &#39;mengemis&#39;: 4.314186004672526, &#39;menggambarkan&#39;: 4.314186004672526, &#39;menggeser&#39;: 4.314186004672526, &#39;menghasilkan&#39;: 3.908720896564361, &#39;menghindari&#39;: 3.908720896564361, &#39;mengidentifikasi&#39;: 3.2155737160044158, &#39;mengikuti&#39;: 4.314186004672526, &#39;menginvestasikan&#39;: 4.314186004672526, &#39;mengkonsumsi&#39;: 4.314186004672526, &#39;mengoptimalisasikan&#39;: 4.314186004672526, &#39;menguji&#39;: 2.7047480922384253, &#39;mengukur&#39;: 2.7047480922384253, &#39;mengunakan&#39;: 3.908720896564361, &#39;mengurangi&#39;: 4.314186004672526, &#39;meniliti&#39;: 4.314186004672526, &#39;meningkat&#39;: 3.3978952727983707, &#39;meningkatkan&#39;: 2.927891643552635, &#39;meningkatnya&#39;: 4.314186004672526, &#39;menitikberatkan&#39;: 4.314186004672526, &#39;menngunakan&#39;: 4.314186004672526, &#39;mention&#39;: 4.314186004672526, &#39;mentor&#39;: 4.314186004672526, &#39;menunjukan&#39;: 3.3978952727983707, &#39;menurunkan&#39;: 4.314186004672526, &#39;menyala&#39;: 4.314186004672526, &#39;menyebabkan&#39;: 3.6210388241125804, &#39;menyebarkan&#39;: 3.3978952727983707, &#39;menyesuaikan&#39;: 4.314186004672526, &#39;merchandise&#39;: 4.314186004672526, &#39;merek&#39;: 2.810108607896251, &#39;merekomendasikan&#39;: 4.314186004672526, &#39;method&#39;: 4.314186004672526, &#39;metode&#39;: 1.749236647210989, &#39;miant&#39;: 4.314186004672526, &#39;milik&#39;: 4.314186004672526, &#39;minat&#39;: 3.3978952727983707, &#39;mineral&#39;: 4.314186004672526, &#39;minet&#39;: 4.314186004672526, &#39;minimal&#39;: 4.314186004672526, &#39;minuman&#39;: 4.314186004672526, &#39;minyak&#39;: 4.314186004672526, &#39;miserablenilai&#39;: 4.314186004672526, &#39;mix&#39;: 4.314186004672526, &#39;moch&#39;: 4.314186004672526, &#39;modal&#39;: 3.908720896564361, &#39;model&#39;: 3.0614230361771577, &#39;modern&#39;: 4.314186004672526, &#39;modus&#39;: 4.314186004672526, &#39;mogokban&#39;: 4.314186004672526, &#39;mojokerto&#39;: 4.314186004672526, &#39;motivasi&#39;: 4.314186004672526, &#39;motor&#39;: 3.3978952727983707, &#39;mudah&#39;: 4.314186004672526, &#39;muhammad&#39;: 4.314186004672526, &#39;multi&#39;: 4.314186004672526, &#39;mulus&#39;: 4.314186004672526, &#39;muncul&#39;: 4.314186004672526, &#39;munculnya&#39;: 3.908720896564361, &#39;mutu&#39;: 4.314186004672526, &#39;nasabah&#39;: 3.6210388241125804, &#39;nasional&#39;: 4.314186004672526, &#39;negara&#39;: 3.908720896564361, &#39;negatif&#39;: 4.314186004672526, &#39;negeri&#39;: 3.908720896564361, &#39;new&#39;: 4.314186004672526, &#39;niat&#39;: 4.314186004672526, &#39;nilai&#39;: 2.116961427336306, &#39;noda&#39;: 4.314186004672526, &#39;non&#39;: 3.2155737160044158, &#39;nonfinansial&#39;: 4.314186004672526, &#39;notebook&#39;: 4.314186004672526, &#39;npl&#39;: 4.314186004672526, &#39;nyata&#39;: 3.908720896564361, &#39;objek&#39;: 3.908720896564361, &#39;observasi&#39;: 4.314186004672526, &#39;observasional&#39;: 4.314186004672526, &#39;of&#39;: 3.908720896564361, &#39;ofis&#39;: 4.314186004672526, &#39;omzet&#39;: 4.314186004672526, &#39;on&#39;: 3.908720896564361, &#39;online&#39;: 3.6210388241125804, &#39;operandi&#39;: 4.314186004672526, &#39;optik&#39;: 4.314186004672526, &#39;optimal&#39;: 4.314186004672526, &#39;or&#39;: 4.314186004672526, &#39;orang&#39;: 3.0614230361771577, &#39;organisasi&#39;: 4.314186004672526, &#39;orgnisasional&#39;: 4.314186004672526, &#39;otomatis&#39;: 4.314186004672526, &#39;otopart&#39;: 4.314186004672526, &#39;pabrik&#39;: 4.314186004672526, &#39;paired&#39;: 3.908720896564361, &#39;pairedsamples&#39;: 4.314186004672526, &#39;pakaian&#39;: 3.908720896564361, &#39;paketan&#39;: 4.314186004672526, &#39;pamekasan&#39;: 4.314186004672526, &#39;pandangan&#39;: 4.314186004672526, &#39;pangarengan&#39;: 4.314186004672526, &#39;pangsa&#39;: 4.314186004672526, &#39;parsial&#39;: 1.5415972824327444, &#39;partisipasi&#39;: 4.314186004672526, &#39;pasar&#39;: 3.908720896564361, &#39;pasarnya&#39;: 4.314186004672526, &#39;pasien&#39;: 4.314186004672526, &#39;path&#39;: 4.314186004672526, &#39;patroli&#39;: 4.314186004672526, &#39;payout&#39;: 4.314186004672526, &#39;pd&#39;: 4.314186004672526, &#39;pedagogik&#39;: 4.314186004672526, &#39;pegawai&#39;: 3.3978952727983707, &#39;pegawaidikantor&#39;: 4.314186004672526, &#39;pejagan&#39;: 4.314186004672526, &#39;pelabelan&#39;: 4.314186004672526, &#39;pelanggan&#39;: 3.6210388241125804, &#39;pelaporan&#39;: 4.314186004672526, &#39;pelatihan&#39;: 3.908720896564361, &#39;pelayanan&#39;: 2.7047480922384253, &#39;pelengkap&#39;: 4.314186004672526, &#39;pemasaran&#39;: 3.3978952727983707, &#39;pembantu&#39;: 4.314186004672526, &#39;pembelian&#39;: 2.01160091167848, &#39;pemecahan&#39;: 4.314186004672526, &#39;pendekatan&#39;: 2.116961427336306, &#39;pendidikan&#39;: 3.6210388241125804, &#39;penelitan&#39;: 4.314186004672526, &#39;peneliti&#39;: 3.908720896564361, &#39;penelitian&#39;: 1.037041271680349, &#39;penerima&#39;: 4.314186004672526, &#39;pengamatan&#39;: 3.6210388241125804, &#39;pengambilan&#39;: 2.3682758556172123, &#39;pengaruh&#39;: 1.2696635669491025, &#39;pengembangan&#39;: 3.6210388241125804, &#39;pengemis&#39;: 4.314186004672526, &#39;pengenalan&#39;: 3.908720896564361, &#39;pengguna&#39;: 3.908720896564361, &#39;pengirim&#39;: 4.314186004672526, &#39;pengolahan&#39;: 3.2155737160044158, &#39;pengujian&#39;: 2.174119841176255, &#39;pengumpulan&#39;: 2.2992829841302607, &#39;peningkatan&#39;: 3.908720896564361, &#39;penjualan&#39;: 3.3978952727983707, &#39;penurunan&#39;: 3.3978952727983707, &#39;penyebaran&#39;: 3.6210388241125804, &#39;penyedap&#39;: 4.314186004672526, &#39;peranan&#39;: 3.908720896564361, &#39;perangkat&#39;: 3.6210388241125804, &#39;perbaikan&#39;: 3.908720896564361, &#39;perbedaan&#39;: 3.2155737160044158, &#39;perdagangan&#39;: 3.6210388241125804, &#39;performance&#39;: 3.908720896564361, &#39;perhitungan&#39;: 3.908720896564361, &#39;perikanan&#39;: 4.314186004672526, &#39;periklanan&#39;: 4.314186004672526, &#39;perilaku&#39;: 3.0614230361771577, &#39;periode&#39;: 3.3978952727983707, &#39;perkembangan&#39;: 4.314186004672526, &#39;permai&#39;: 4.314186004672526, &#39;permintaan&#39;: 3.908720896564361, &#39;perpustakaan&#39;: 3.3978952727983707, &#39;persepsi&#39;: 3.2155737160044158, &#39;persero&#39;: 3.6210388241125804, &#39;personal&#39;: 3.908720896564361, &#39;perubahan&#39;: 3.6210388241125804, &#39;perumahan&#39;: 4.314186004672526, &#39;perusahaan&#39;: 2.7047480922384253, &#39;pesan&#39;: 3.3978952727983707, &#39;peserta&#39;: 4.314186004672526, &#39;petis&#39;: 4.314186004672526, &#39;petugas&#39;: 4.314186004672526, &#39;piutang&#39;: 4.314186004672526, &#39;pln&#39;: 3.908720896564361, &#39;pns&#39;: 4.314186004672526, &#39;populasi&#39;: 2.0628942060660305, &#39;populasinya&#39;: 4.314186004672526, &#39;population&#39;: 4.314186004672526, &#39;portal&#39;: 4.314186004672526, &#39;portofolio&#39;: 4.314186004672526, &#39;pos&#39;: 3.908720896564361, &#39;positif&#39;: 3.0614230361771577, &#39;positivisme&#39;: 4.314186004672526, &#39;potensi&#39;: 4.314186004672526, &#39;ppengaruh&#39;: 4.314186004672526, &#39;praktek&#39;: 4.314186004672526, &#39;praktekpaktek&#39;: 4.314186004672526, &#39;praktis&#39;: 4.314186004672526, &#39;prambon&#39;: 4.314186004672526, &#39;preferensi&#39;: 4.314186004672526, &#39;prestasi&#39;: 3.3978952727983707, &#39;pribadi&#39;: 3.6210388241125804, &#39;produk&#39;: 2.2992829841302607, &#39;produktifitas&#39;: 4.314186004672526, &#39;produktivitas&#39;: 3.6210388241125804, &#39;profesional&#39;: 4.314186004672526, &#39;profesionalisme&#39;: 4.314186004672526, &#39;profitabilitas&#39;: 3.908720896564361, &#39;program&#39;: 3.908720896564361, &#39;promosi&#39;: 3.2155737160044158, &#39;proses&#39;: 3.908720896564361, &#39;psikologis&#39;: 3.908720896564361, &#39;pt&#39;: 2.927891643552635, &#39;publisitas&#39;: 4.314186004672526, &#39;purchasing&#39;: 4.314186004672526, &#39;purposive&#39;: 2.2992829841302607, &#39;pusat&#39;: 4.314186004672526, &#39;quality&#39;: 4.314186004672526, &#39;quick&#39;: 4.314186004672526, &#39;random&#39;: 3.3978952727983707, &#39;rangka&#39;: 4.314186004672526, &#39;rapi&#39;: 4.314186004672526, &#39;rasio&#39;: 3.6210388241125804, &#39;rasional&#39;: 4.314186004672526, &#39;rasiorasio&#39;: 4.314186004672526, &#39;ratarata&#39;: 4.314186004672526, &#39;ratio&#39;: 3.3978952727983707, &#39;raya&#39;: 4.314186004672526, &#39;reabilitas&#39;: 3.6210388241125804, &#39;realibilitas&#39;: 4.314186004672526, &#39;recovery&#39;: 4.314186004672526, &#39;reduction&#39;: 4.314186004672526, &#39;regresi&#39;: 1.749236647210989, &#39;rekrutmen&#39;: 4.314186004672526, &#39;rekrutmenpengembangan&#39;: 4.314186004672526, &#39;relationship&#39;: 4.314186004672526, &#39;reliabilitas&#39;: 2.810108607896251, &#39;rendah&#39;: 4.314186004672526, &#39;rentabilitas&#39;: 4.314186004672526, &#39;reputasi&#39;: 4.314186004672526, &#39;research&#39;: 3.908720896564361, &#39;resiko&#39;: 4.314186004672526, &#39;resmi&#39;: 4.314186004672526, &#39;respect&#39;: 4.314186004672526, &#39;responden&#39;: 1.871838969303321, &#39;respondenteknik&#39;: 3.6210388241125804, &#39;respondenuji&#39;: 4.314186004672526, &#39;respondenuntuk&#39;: 3.6210388241125804, &#39;responder&#39;: 4.314186004672526, &#39;restoran&#39;: 4.314186004672526, &#39;result&#39;: 4.314186004672526, &#39;retailimg&#39;: 4.314186004672526, &#39;retailing&#39;: 4.314186004672526, &#39;return&#39;: 3.2155737160044158, &#39;returns&#39;: 4.314186004672526, &#39;reza&#39;: 4.314186004672526, &#39;rinso&#39;: 4.314186004672526, &#39;riset&#39;: 3.3978952727983707, &#39;risiko&#39;: 3.908720896564361, &#39;risk&#39;: 3.908720896564361, &#39;robatal&#39;: 4.314186004672526, &#39;roe&#39;: 4.314186004672526, &#39;rumah&#39;: 4.314186004672526, &#39;rumusan&#39;: 4.314186004672526, &#39;r²&#39;: 3.908720896564361, &#39;saham&#39;: 3.6210388241125804, &#39;saji&#39;: 4.314186004672526, &#39;sakit&#39;: 4.314186004672526, &#39;salah&#39;: 3.0614230361771577, &#39;sampang&#39;: 3.3978952727983707, &#39;sampel&#39;: 1.5733459807473247, &#39;sample&#39;: 3.6210388241125804, &#39;sampling&#39;: 1.6061358035703155, &#39;sampoerna&#39;: 4.314186004672526, &#39;sania&#39;: 4.314186004672526, &#39;sarana&#39;: 4.314186004672526, &#39;satiyah&#39;: 4.314186004672526, &#39;satunya&#39;: 4.314186004672526, &#39;sdm&#39;: 4.314186004672526, &#39;segi&#39;: 4.314186004672526, &#39;seharihari&#39;: 4.314186004672526, &#39;sehat&#39;: 4.314186004672526, &#39;sejahtera&#39;: 4.314186004672526, &#39;seleksi&#39;: 4.314186004672526, &#39;self&#39;: 4.314186004672526, &#39;seluler&#39;: 4.314186004672526, &#39;semanagt&#39;: 4.314186004672526, &#39;semangat&#39;: 3.908720896564361, &#39;sepeda&#39;: 3.6210388241125804, &#39;service&#39;: 3.6210388241125804, &#39;serviscape&#39;: 4.314186004672526, &#39;servisecape&#39;: 4.314186004672526, &#39;sesuai&#39;: 3.908720896564361, &#39;sharekelima&#39;: 4.314186004672526, &#39;siddiq&#39;: 4.314186004672526, &#39;sido&#39;: 4.314186004672526, &#39;sidogiri&#39;: 4.314186004672526, &#39;sigifikan&#39;: 4.314186004672526, &#39;signifikan&#39;: 1.5733459807473247, &#39;signifikansi&#39;: 3.908720896564361, &#39;sikap&#39;: 3.2155737160044158, &#39;similarity&#39;: 4.314186004672526, &#39;simple&#39;: 3.908720896564361, &#39;simpulan&#39;: 4.314186004672526, &#39;simultan&#39;: 1.3964152725882464, &#39;sipil&#39;: 3.908720896564361, &#39;sisanya&#39;: 2.7047480922384253, &#39;sistem&#39;: 3.908720896564361, &#39;sistematis&#39;: 3.6210388241125804, &#39;situs&#39;: 4.314186004672526, &#39;size&#39;: 4.314186004672526, &#39;skala&#39;: 2.6094379124341005, &#39;skor&#39;: 4.314186004672526, &#39;social&#39;: 4.314186004672526, &#39;sociology&#39;: 4.314186004672526, &#39;software&#39;: 3.0614230361771577, &#39;solution&#39;: 4.314186004672526, &#39;sosial&#39;: 3.2155737160044158, &#39;sosialisasi&#39;: 4.314186004672526, &#39;soto&#39;: 4.314186004672526, &#39;split&#39;: 3.908720896564361, &#39;sponsor&#39;: 4.314186004672526, &#39;spss&#39;: 2.174119841176255, &#39;square&#39;: 2.810108607896251, &#39;statis&#39;: 4.314186004672526, &#39;statistic&#39;: 4.314186004672526, &#39;statistical&#39;: 4.314186004672526, &#39;statistik&#39;: 3.6210388241125804, &#39;status&#39;: 4.314186004672526, &#39;stock&#39;: 3.908720896564361, &#39;strategi&#39;: 3.908720896564361, &#39;strategy&#39;: 4.314186004672526, &#39;stratified&#39;: 4.314186004672526, &#39;strength&#39;: 4.314186004672526, &#39;stres&#39;: 4.314186004672526, &#39;stressor&#39;: 4.314186004672526, &#39;struktur&#39;: 3.6210388241125804, &#39;studi&#39;: 2.6094379124341005, &#39;suasana&#39;: 3.908720896564361, &#39;sukses&#39;: 4.314186004672526, &#39;sumber&#39;: 3.6210388241125804, &#39;sumbr&#39;: 4.314186004672526, &#39;sumur&#39;: 4.314186004672526, &#39;sungguhsungguh&#39;: 4.314186004672526, &#39;supra&#39;: 4.314186004672526, &#39;surabaya&#39;: 3.3978952727983707, &#39;surabayametode&#39;: 4.314186004672526, &#39;suramadu&#39;: 4.314186004672526, &#39;survei&#39;: 4.314186004672526, &#39;survey&#39;: 3.3978952727983707, &#39;surya&#39;: 3.908720896564361, &#39;susu&#39;: 4.314186004672526, &#39;swalayan&#39;: 3.6210388241125804, &#39;syahkesimpulan&#39;: 4.314186004672526, &#39;syarat&#39;: 4.314186004672526, &#39;tabel&#39;: 4.314186004672526, &#39;tandatanda&#39;: 4.314186004672526, &#39;tanggap&#39;: 3.908720896564361, &#39;tbk&#39;: 4.314186004672526, &#39;teknik&#39;: 1.675128675057267, &#39;teknis&#39;: 3.908720896564361, &#39;teknologi&#39;: 4.314186004672526, &#39;telang&#39;: 4.314186004672526, &#39;televisi&#39;: 4.314186004672526, &#39;teliti&#39;: 4.314186004672526, &#39;temuan&#39;: 4.314186004672526, &#39;teori&#39;: 3.908720896564361, &#39;teory&#39;: 4.314186004672526, &#39;ter&#39;: 4.314186004672526, &#39;terbaik&#39;: 4.314186004672526, &#39;terbesar&#39;: 4.314186004672526, &#39;terbukti&#39;: 3.3978952727983707, &#39;tercapai&#39;: 4.314186004672526, &#39;terciptanya&#39;: 4.314186004672526, &#39;terdaftar&#39;: 3.2155737160044158, &#39;terhdap&#39;: 3.908720896564361, &#39;teridiri&#39;: 4.314186004672526, &#39;terikat&#39;: 2.5224265354444704, &#39;terikatnya&#39;: 3.908720896564361, &#39;terkumpul&#39;: 3.2155737160044158, &#39;terpadu&#39;: 4.314186004672526, &#39;terpasang&#39;: 4.314186004672526, &#39;terperinci&#39;: 4.314186004672526, &#39;tersedia&#39;: 4.314186004672526, &#39;tersertifikasi&#39;: 4.314186004672526, &#39;tertanam&#39;: 4.314186004672526, &#39;test&#39;: 3.6210388241125804, &#39;that&#39;: 4.314186004672526, &#39;the&#39;: 4.314186004672526, &#39;this&#39;: 4.314186004672526, &#39;thitung&#39;: 4.314186004672526, &#39;tied&#39;: 4.314186004672526, &#39;tiket&#39;: 4.314186004672526, &#39;timur&#39;: 3.908720896564361, &#39;tingkah&#39;: 3.908720896564361, &#39;tingkat&#39;: 2.810108607896251, &#39;tipe&#39;: 4.314186004672526, &#39;tjiwi&#39;: 4.314186004672526, &#39;to&#39;: 3.6210388241125804, &#39;together&#39;: 4.314186004672526, &#39;toko&#39;: 4.314186004672526, &#39;tolak&#39;: 4.314186004672526, &#39;tom&#39;: 3.908720896564361, &#39;top&#39;: 4.314186004672526, &#39;total&#39;: 4.314186004672526, &#39;tractors&#39;: 4.314186004672526, &#39;transkrip&#39;: 4.314186004672526, &#39;trunjoyo&#39;: 4.314186004672526, &#39;trunojoyo&#39;: 2.6094379124341005, &#39;trustworthiness&#39;: 4.314186004672526, &#39;tujuan&#39;: 1.4519851237430572, &#39;tumbuh&#39;: 4.314186004672526, &#39;tuna&#39;: 4.314186004672526, &#39;tunggal&#39;: 4.314186004672526, &#39;tuntutan&#39;: 4.314186004672526, &#39;turnover&#39;: 4.314186004672526, &#39;tva&#39;: 4.314186004672526, &#39;uang&#39;: 4.314186004672526, &#39;ugt&#39;: 4.314186004672526, &#39;uji&#39;: 1.6061358035703155, &#39;ukuran&#39;: 4.314186004672526, &#39;ulang&#39;: 4.314186004672526, &#39;umpan&#39;: 4.314186004672526, &#39;united&#39;: 4.314186004672526, &#39;universitas&#39;: 2.6094379124341005, &#39;unsur&#39;: 4.314186004672526, &#39;upaya&#39;: 3.908720896564361, &#39;update&#39;: 4.314186004672526, &#39;usaha&#39;: 3.908720896564361, &#39;use&#39;: 4.314186004672526, &#39;used&#39;: 4.314186004672526, &#39;utama&#39;: 3.908720896564361, &#39;utm&#39;: 4.314186004672526, &#39;vairabel&#39;: 4.314186004672526, &#39;validitas&#39;: 2.5224265354444704, &#39;variabel&#39;: 1.2461330695389086, &#39;variabelvariabel&#39;: 3.3978952727983707, &#39;variable&#39;: 3.6210388241125804, &#39;varibel&#39;: 4.314186004672526, &#39;variebel&#39;: 4.314186004672526, &#39;vario&#39;: 4.314186004672526, &#39;verification&#39;: 4.314186004672526, &#39;versi&#39;: 2.810108607896251, &#39;volume&#39;: 3.6210388241125804, &#39;wawancara&#39;: 3.2155737160044158, &#39;webqual&#39;: 4.314186004672526, &#39;website&#39;: 4.314186004672526, &#39;which&#39;: 4.314186004672526, &#39;whichsuch&#39;: 4.314186004672526, &#39;while&#39;: 4.314186004672526, &#39;wilayah&#39;: 4.314186004672526, &#39;wildansemsi&#39;: 4.314186004672526, &#39;windows&#39;: 3.6210388241125804, &#39;wispandonosems&#39;: 4.314186004672526, &#39;with&#39;: 4.314186004672526, &#39;xl&#39;: 3.908720896564361, &#39;xterhadap&#39;: 4.314186004672526, &#39;yamaha&#39;: 4.314186004672526, &#39;zscore&#39;: 4.314186004672526}
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\users\hp\appdata\local\programs\python\python39\lib\site-packages\sklearn\utils\deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+  warnings.warn(msg, category=FutureWarning)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">kata</span> <span class="o">=</span> <span class="n">l</span>
+<span class="n">Nilai</span> <span class="o">=</span> <span class="n">idf</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Nilai</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Ekstraksi_11_0.png" src="_images/Ekstraksi_11_0.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Preprocessing.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">PREPROCESSING</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="lsa.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Topic Modelling LSA</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The Jupyter Book Community<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
